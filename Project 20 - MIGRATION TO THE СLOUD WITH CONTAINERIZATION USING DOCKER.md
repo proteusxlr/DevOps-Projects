@@ -35,8 +35,8 @@ docker-ce:
 ![pix5](https://user-images.githubusercontent.com/74002629/208448222-d846880f-222c-4ee0-aa50-c44ed8f282f5.PNG)
 6. Create an SQL script that to create a user that will connect remotely. Create a file and name it ****create_user.sql**** and add code in the file:
 ```
-CREATE USER 'suleman'@'%' IDENTIFIED BY 'sulemanpw';
-GRANT ALL PRIVILEGES ON *.* TO 'suleman'@'%';
+CREATE USER 'suleman'@'%' IDENTIFIED BY 'proteusxlrpw';
+GRANT ALL PRIVILEGES ON *.* TO 'proteusxlr'@'%';
 
 CREATE DATABASE toolingdb;
 ```
@@ -61,8 +61,8 @@ The script also creates a database for the Tooling web application.
 sudo vi .env
 
 MYSQL_IP=mysqlserverhost
-MYSQL_USER=suleman
-MYSQL_PASS=sulemanpw
+MYSQL_USER=proteusxlr
+MYSQL_PASS=proteusxlrpw
 MYSQL_DBNAME=toolingdb
 ```
 ![pix7](https://user-images.githubusercontent.com/74002629/208449253-8f74bc1a-ddbc-488d-beca-8d80cfa75d0f.PNG)
