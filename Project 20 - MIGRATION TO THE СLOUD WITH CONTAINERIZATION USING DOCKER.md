@@ -27,7 +27,7 @@ docker-ce:
 #### STEP 2 Create SQL Container and Connect to the container.
 1. First, create a network. Creating a custom network is not mandatory, if we do not create a network, Docker will use the default network for all the containers. In this project however, the requirement is to control the cidr range of the containers running so I created a custom network with a specific cidr with the following code: ` sudo docker network create --subnet=172.18.0.0/24 tooling_app_network`
 ![pix4](https://user-images.githubusercontent.com/74002629/208447461-7107f1b9-96eb-4ddb-974d-cf9a64459b22.PNG)
-2. Create an environment variable to store the root password: ` export MYSQL_PW=sulemanpw`
+2. Create an environment variable to store the root password: ` export MYSQL_PW=proteusxlrpw`
 3. Echo enviroment variable to confirm it was created: `echo $MYSQL_PW` This would output the password you created.
 4. Next, pull the image and run the container, all in one command like below:
 ` sudo docker run --network tooling_app_network -h mysqlserverhost --name=mysql-server -e MYSQL_ROOT_PASSWORD=$MYSQL_PW  -d mysql/mysql-server:latest `
