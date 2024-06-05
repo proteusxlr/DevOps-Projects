@@ -20,7 +20,7 @@ Note: For most projects, static assignments are preferred as they are more relia
 
 #### Introducing Dynamic Assignment Into the structure
 
-In the ```https://github.com/<your-name>/ansible-config-mgt GitHub repository ```, start a new branch and call it dynamic-assignments.
+In the ```https://github.com/proteusxlr/ansible-config-mgt GitHub repository ```, start a new branch and call it dynamic-assignments.
   
 ![project13ad](https://user-images.githubusercontent.com/41236641/156893444-1afded89-2ff9-47ba-ba99-b2ea2f6bb85a.PNG)
 
@@ -142,8 +142,8 @@ This project will make use of a MySQL role developed by [geerlingguy](https://ga
 On Jenkins-Ansible server make sure that git is installed with git --version, then go to ‘ansible-config-mgt’ directory and run:
 ```
 git init
-git pull https://github.com/<your-name>/ansible-config-mgt.git
-git remote add origin https://github.com/<your-name>/ansible-config-mgt.git
+git pull https://github.com/proteusxlr/ansible-config-mgt.git
+git remote add origin https://github.com/proteusxlr/ansible-config-mgt.git
 git branch roles-feature
 git switch roles-feature
 ```
