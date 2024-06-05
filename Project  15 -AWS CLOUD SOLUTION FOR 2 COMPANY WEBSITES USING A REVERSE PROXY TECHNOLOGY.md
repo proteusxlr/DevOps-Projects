@@ -90,7 +90,7 @@ The infrastructure for both websites; WordPress and Tooling, is resilient to Web
 yum install -y nginx
 systemctl start nginx
 systemctl enable nginx
-git clone https://github.com/annafamefuna/ACS-project-config.git
+git clone https://github.com/proteusxlr/ACS-project-config.git
 mv /ACS-project-config/reverse.conf /etc/nginx/
 mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf-distro
 cd /etc/nginx/
