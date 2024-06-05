@@ -694,13 +694,13 @@ Based on our architecture we need to create Auto-scaling groups for bastion, ngi
 1. Create `asg-bastion-nginx.tf` and paste all the code snippet below;
 ```
 # creating sns topic for all the auto scaling groups
-resource "aws_sns_topic" "cynthia-sns" {
+resource "aws_sns_topic" "proteusxlr-sns" {
 name = "Default_CloudWatch_Alarms_Topic"
 }
 ```
 2. Create notification for all the auto scaling groups:
 ```
-resource "aws_autoscaling_notification" "cynthia_notifications" {
+resource "aws_autoscaling_notification" "proteusxlr_notifications" {
   group_names = [
     aws_autoscaling_group.bastion-asg.name,
     aws_autoscaling_group.nginx-asg.name,
@@ -714,7 +714,7 @@ resource "aws_autoscaling_notification" "cynthia_notifications" {
     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
   ]
 
-  topic_arn = aws_sns_topic.cynthia-sns.arn
+  topic_arn = aws_sns_topic.proteusxlr-sns.arn
 }
 ```
 3. Create Launch template and Atuo scaling groups for bastion
