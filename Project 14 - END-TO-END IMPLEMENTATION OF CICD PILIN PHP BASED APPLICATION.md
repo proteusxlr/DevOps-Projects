@@ -31,15 +31,15 @@ focus will be mainly on the CI, Dev and Pentest enviroments
 1. Set up SSH-agent: 
 ```
 eval `ssh-agent -s`
-ssh-add <path-to-private-key>
+ssh-add proteusxlr
 ```
 2. Connect to your Jenkins instance on VScode.
 3. Install the following packages and dependencies on the server:
 - Install git : `sudo apt install git`
-- Clone dwn the Asible-config-mgt repository: `git clone https://github.com/cynthia-okoduwa/ansible-config-mgt.git`
+- Clone dwn the Asible-config-mgt repository: `git clone https://github.com/proteusxlr/ansible-config-mgt.git`
 - Install Jenkins and its dependencies. Steps to install Jenkins can be found [here](https://www.jenkins.io/doc/book/installing/)
-4. Configure Ansible For Jenkins Deployment. See [Project 9](https://github.com/cynthia-okoduwa/DevOps-projects/blob/main/Project9.md) for the initial setup of Jenkins. Here I will be comfiguring Jenkins to run Ansible commands in Jenkins UI.
-- Navigate to Jenkins URL: `<Jenkins-server-public-IP>:8080`
+4. Configure Ansible For Jenkins Deployment. See [Project 9](https://github.com/proteusxlr/DevOps-projects/blob/main/Project9.md) for the initial setup of Jenkins. Here I will be comfiguring Jenkins to run Ansible commands in Jenkins UI.
+- Navigate to Jenkins URL: 30.198.300.1:8080`
 - In the Jenkins dashboard, click on Manage Jenkins -> Manage plugins and search for Blue Ocean plugin. Install and open Blue Ocean plugin.
 ![pix1](https://user-images.githubusercontent.com/74002629/192139875-9d78fb62-afd5-4999-b8a8-0c40e5acca34.PNG)
 
@@ -142,7 +142,7 @@ pipeline {
 
       stage('Checkout SCM') {
          steps{
-            git branch: 'main', url: 'https://github.com/Suleiman223/ansible-config-mgt.git'
+            git branch: 'main', url: 'https://github.com/proteusxlr/ansible-config-mgt.git'
          }
        }
 
@@ -155,7 +155,7 @@ pipeline {
 
       stage('Run Ansible playbook') {
         steps {
-           ansiblePlaybook become: true, credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev, playbook: 'playbooks/site.yml'
+           ansiblePlaybook become: true, credentialsId: proteusxlr, disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev, playbook: 'playbooks/site.yml'
          }
       }
 
@@ -206,7 +206,7 @@ ansible_user=ec2-user
 ansible_python_interpreter=/usr/bin/python
 
 [db]
-<SIT-DB-Server-Private-IP-Address>
+<SIT-DB-Server-172.100.23.1>
 ```
 5. Update Jenkinsfile to introduce parameterization. Below is just one parameter. It has a default value in case if no value is specified at execution. It also has a description so that everyone is aware of its purpose.
 ```
@@ -228,7 +228,7 @@ Our goal here is to deploy the Todo application onto servers directly from **Art
 ![pix23](https://user-images.githubusercontent.com/74002629/192488480-5562cbb1-d39e-4dfe-83e1-ced7b7113786.PNG)
 
 3. Next, fork the Todo repository below into your GitHub account
-`https://github.com/darey-devops/php-todo.git`
+`https://github.com/proteusxlr/php-todo.git`
 4. On you Jenkins server, install PHP, its dependencies and Composer tool 
     `sudo apt install -y zip libapache2-mod-php phploc php-{xml,bcmath,bz2,intl,gd,mbstring,mysql,zip}`
 5. In Jenkins UI install the following Jenkins plugins: 
@@ -282,7 +282,7 @@ pipeline {
 
     stage('Checkout SCM') {
       steps {
-            git branch: 'main', url: 'https://github.com/Suleiman223/php-todo.git'
+            git branch: 'main', url: 'https://github.com/proteusxlr/php-todo.git'
       }
     }
 
@@ -442,7 +442,7 @@ NOTE: The above step will fail because we have not updated **sonar-scanner.prope
 17. Open sonar-scanner.properties file: `sudo vi sonar-scanner.properties`
 18. Add configuration related to php-todo project
 ```
-sonar.host.url=http://<SonarQube-Server-IP-address>:9000
+sonar.host.url=http://<SonarQube-Server-192.300.30.1:9000
 sonar.projectKey=php-todo
 #----- Default source code encoding
 sonar.sourceEncoding=UTF-8
