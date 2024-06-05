@@ -130,7 +130,7 @@ ansible-playbook -i inventory/dev.yml playbooks/site.yaml
 
 7. Time to add some logic to the webserver role. Go into **tasks** directory, and within the **main.yml** file, write configuration tasks to do the following:
   - Install and configure Apache (httpd service)
-  - Clone Tooling website from GitHub https://github.com/<your-name>/tooling.git.
+  - Clone Tooling website from GitHub https://github.com/proteusxlr/tooling.git.
   - Ensure the tooling website code is deployed to /var/www/html on each of 2 UAT Web servers.
   - Make sure httpd service is started
 8. Your **main.yml** may consist of following tasks:
@@ -151,7 +151,7 @@ ansible-playbook -i inventory/dev.yml playbooks/site.yaml
 - name: clone a repo
   become: true
   ansible.builtin.git:
-    repo: https://github.com/<your-name>/tooling.git
+    repo: https://github.com/proteusxlr/tooling.git
     dest: /var/www/html
     force: yes
 
