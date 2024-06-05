@@ -1737,14 +1737,14 @@ ami = "ami-09e67e426f25ce0d7"
 
 keypair = "NvirgKP3"
 
-master-password = "sulemanproject"
+master-password = "proteusxlrproject"
 
-master-username = "suleman"
+master-username = "proteusxlr"
 
 account_no = "148029617773"
 
 tags = {
-  Owner-Email = "adaora.okoduwa@gmail.com"
+  Owner-Email = "Proteusxlr@gmail.com"
   Managed-By  = "Terraform"
   Billing-Account = "1234567890"
 }
@@ -1772,7 +1772,7 @@ Create an S3 bucket to store Terraform state file. Note: S3 bucket names must be
 ##creating bucket for s3 backend
 
 resource "aws_s3_bucket" "terraform-state" {
-  bucket        = "sulemanpbl18"
+  bucket        = "proteusxlr"
   force_destroy = true
 }
 resource "aws_s3_bucket_versioning" "version" {
@@ -1807,7 +1807,7 @@ resource "aws_dynamodb_table" "terraform_locks" {
 ```
 terraform {
    backend "s3" {
-     bucket         = "sulemanpbl18"
+     bucket         = "proteusxlr"
      key            = "global/s3/terraform.tfstate"
      region         = "us-east-1"
      dynamodb_table = "terraform-locks"
